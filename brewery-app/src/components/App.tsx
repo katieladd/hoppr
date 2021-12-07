@@ -47,7 +47,7 @@ const initBrewery: Brewery = {
 };
 
 const App: React.FC = () => {
-  const [brewList, setBrewList] = useState<Brewery>(initBrewery)
+  const [brewList, setBrewList] = useState<Brewery[]>([initBrewery])
 
   return (
     <Router>

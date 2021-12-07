@@ -4,11 +4,11 @@ import axios from 'axios';
 import List from "./List"
 
 type Props = {
-  brewList: Brewery | Brewery[],
-  setBrewList: React.Dispatch<React.SetStateAction<Brewery>> | React.Dispatch<React.SetStateAction<Brewery[]>>
+  brewList: Brewery[],
+  setBrewList: React.Dispatch<React.SetStateAction<Brewery[]>>
 }
 
-const Home: React.FC<Props> = ({brewList}: {brewList: Brewery | Brewery[]}, setBrewList) => {
+const Home: React.FC<Props> = ({brewList}: {brewList: Brewery[]}, setBrewList) => {
   const [city, setCity] = useState('Harrisburg');
 
   const getCityBreweryList = (city: string) => {

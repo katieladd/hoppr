@@ -1,49 +1,35 @@
 import React from "react"
+import { Brewery } from "./App"
 
 type Props = {
-  id: string,
-  brewery_name: string,
-  brewery_type: string,
-  street: string,
-  address_2?: string | null,
-  address_3?: string |null,
-  city: string,
-  state: string,
-  postal_code: string | number,
-  website_url: string,
+  listItem: Brewery;
 }
 
-const List: React.FC<Props>= ({
-  address_2,
-  address_3,
-  brewery_name,
-  brewery_type,
-  city,
-  id,
-  postal_code,
-  state,
-  street,
-  website_url
-}) => {
+const List: React.FC<Props> = ({listItem}) => {
   return (
-    <div className={id}>
-      <li>{brewery_name}</li>
-      <label>Type</label>
-      <li>{brewery_type}</li>
-      <label>Address</label>
-      <li>{city}</li>
-      <li>{state}</li>
-      <li>{street}</li>
-      {address_2 &&<li>{address_2}</li>}
-      {address_3 && <li>{address_3}</li>}
-      <li>{postal_code}</li>
-      <label>Website</label>
-      <li>{website_url}</li>
+    <div className={`item-container ${listItem.id}`}>
+      <h1>{listItem.name}</h1>
+      <h2>
+        <label>Type:</label>
+      </h2>
+      <li>{listItem.brewery_type}</li>
+      <h2>
+        <label>Address</label>
+      </h2>
+      <li>{listItem.city}</li>
+      <li>{listItem.state}</li>
+      <li>{listItem.street}</li>
+      {listItem.address_2 &&<li>{listItem.address_2}</li>}
+      {listItem.address_3 && <li>{listItem.address_3}</li>}
+      <li>{listItem.postal_code}</li>
+      <h2>
+        <label>Website</label>
+      </h2>
+      <li>{listItem.website_url}</li>
+      <button>More Info</button>
       <br></br>
       <br></br>
     </div>
-
-
   )
 }
 

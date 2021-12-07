@@ -3,13 +3,17 @@ import { Brewery } from './App';
 import axios from 'axios';
 import List from "./List"
 
-const Home: React.FC = () => {
+type Props = {
+  brewList: Brewery | Brewery[],
+  setBrewList: React.Dispatch<React.SetStateAction<Brewery>> | React.Dispatch<React.SetStateAction<Brewery[]>>
+}
+
+const Home: React.FC<Props> = ({brewList}: {brewList: Brewery | Brewery[]}, setBrewList) => {
   const [city, setCity] = useState('Harrisburg');
-  const [brewList, setBrewList] = useState<Brewery[]>([])
 
   const getCityBreweryList = (city: string) => {
     axios.get(`https://api.openbrewerydb.org/breweries?by_city=${city}`)
-    .then((response: { data: React.SetStateAction<Brewery[]>; }) => {
+    .then((response: { data: React.SetStateAction<Brewery>; }) => {
       if (response.data)
       setBrewList(response.data)
     })
@@ -30,6 +34,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
   }, [])
+
   return (
     <div>
     <form onSubmit={handleSubmit}>
@@ -44,7 +49,8 @@ const Home: React.FC = () => {
       <input type='submit' value='Submit' />
     </form>
     <div className='list-container'>
-      {brewList?.map(listItem => (
+
+        {brewList?.map(listItem => (
         <List
           listItem={listItem}
           key={listItem.id}

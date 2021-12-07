@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "react-router-dom";
 import { Brewery } from "./App"
 
 type Props = {
@@ -6,6 +7,7 @@ type Props = {
 }
 
 const List: React.FC<Props> = ({listItem}) => {
+
   return (
     <div className={`item-container ${listItem.id}`}>
       <h1>{listItem.name}</h1>
@@ -26,7 +28,10 @@ const List: React.FC<Props> = ({listItem}) => {
         <label>Website</label>
       </h2>
       <li>{listItem.website_url}</li>
-      <button>More Info</button>
+      <Link to={`details/lat:${listItem.latitude}&lng:${listItem.longitude}`}>
+        <button type='button'>
+        More Info</button>
+      </Link>
       <br></br>
       <br></br>
     </div>

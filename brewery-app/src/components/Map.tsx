@@ -12,10 +12,15 @@ const options = {
   disableDefaultUI: true
 }
 
-const Map = () => {
+type Props = {
+  lat: any,
+  lng: any
+}
+
+const Map: React.FC<Props>= ({lat, lng }) => {
   const center = {
-    lat: 40.2732,
-    lng: -76.8867
+    lat: lat,
+    lng: lng
   };
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',

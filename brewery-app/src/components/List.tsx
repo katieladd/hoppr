@@ -21,16 +21,19 @@ const List: React.FC<Props> = ({listItem}) => {
       <li>{listItem.city}</li>
       <li>{listItem.state}</li>
       <li>{listItem.street}</li>
-      {listItem.address_2 &&<li>{listItem.address_2}</li>}
+      {listItem.address_2 && <li>{listItem.address_2}</li>}
       {listItem.address_3 && <li>{listItem.address_3}</li>}
       <li>{listItem.postal_code}</li>
       <h2>
         <label>Website</label>
       </h2>
       <li>{listItem.website_url}</li>
-      <Link to={`details/lat:${listItem.latitude}&lng:${listItem.longitude}`}>
-        <button type='button'>
-        More Info</button>
+      <Link to={`details/${listItem.id}`}>
+        <button
+          className='more-info-button'
+          type='button'
+        >
+          More Details</button>
       </Link>
       <br></br>
       <br></br>

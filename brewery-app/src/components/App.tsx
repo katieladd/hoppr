@@ -1,5 +1,6 @@
-import React, {useState} from "react";
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BreweryDetails from "./BreweryDetails";
 import Home from "./Home";
 import "../App.css";
@@ -17,15 +18,15 @@ export type Brewery = {
   county_province: string | null;
   postal_code: string | number;
   country: string;
-  longitude: number;
-  latitude: number;
+  longitude: string;
+  latitude: string;
   phone: number;
   website_url: string;
   updated_at: string;
   created_at: string;
 }
 
-const initBrewery: Brewery = {
+export const initBrewery: Brewery = {
   id: "",
   name: "",
   brewery_name: "",
@@ -38,27 +39,50 @@ const initBrewery: Brewery = {
   county_province: "",
   postal_code: "",
   country: "",
-  longitude: 0,
-  latitude: 0,
+  longitude: "",
+  latitude: "",
   phone: 0,
   website_url: "",
   updated_at: "",
   created_at: "",
 };
 
+export interface Props {
+  brewList: Brewery[]
+}
+
 const App: React.FC = () => {
   const [brewList, setBrewList] = useState<Brewery[]>([initBrewery])
+  const city = 'Syracuse';
+
+  const getCityBreweryList = (city: string) => {
+    axios.get(`https://api.openbrewerydb.org/breweries?by_city=${city}`)
+    .then((response) => {
+      if(response.data) {
+        setBrewList(response.data)
+      }
+    })
+    .catch((e: Error) => {
+      console.log(e);
+    });
+  }
+
+  useEffect(() => {
+    getCityBreweryList(city)
+  }, [])
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home
-          brewList={brewList}
-          setBrewList={setBrewList}
-        />}/>
-        <Route path="/details" element={<BreweryDetails
-          brewList={brewList}
-        />}/>
+        <Route path="/"
+          element={<Home
+            brewList={brewList}
+          />}
+        />
+        <Route path="/details/:id"
+          element={<BreweryDetails
+          />}
+        />
       </Routes>
     </Router>
   );

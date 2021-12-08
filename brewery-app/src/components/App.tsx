@@ -1,11 +1,12 @@
 import axios from "axios";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import BreweryDetails from "./BreweryDetails";
+import Header from "./Header";
 import Home from "./Home";
-import "../App.css";
+import "../styles/app.css";
 
-export type Brewery = {
+export interface Brewery {
   id: string;
   name: string;
   brewery_name: string;
@@ -24,6 +25,10 @@ export type Brewery = {
   website_url: string;
   updated_at: string;
   created_at: string;
+}
+
+export interface Props {
+  brewList: Brewery[]
 }
 
 export const initBrewery: Brewery = {
@@ -47,13 +52,11 @@ export const initBrewery: Brewery = {
   created_at: "",
 };
 
-export interface Props {
-  brewList: Brewery[]
-}
+type FormEvent = React.FormEvent<HTMLFormElement>;
 
 const App: React.FC = () => {
   const [brewList, setBrewList] = useState<Brewery[]>([initBrewery])
-  const city = 'Syracuse';
+  const [city, setCity] = useState<string>('Harrisburg')
 
   const getCityBreweryList = (city: string) => {
     axios.get(`https://api.openbrewerydb.org/breweries?by_city=${city}`)
@@ -67,19 +70,29 @@ const App: React.FC = () => {
     });
   }
 
+  const handleOnSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    getCityBreweryList(city);
+  }
+
   useEffect(() => {
     getCityBreweryList(city)
   }, [])
 
   return (
     <Router>
+      <Header
+        city={city}
+        setCity={setCity}
+        handleOnSubmit={handleOnSubmit}
+      />
       <Routes>
-        <Route path="/"
+        <Route path='/'
           element={<Home
             brewList={brewList}
           />}
         />
-        <Route path="/details/:id"
+        <Route path='/details/:id'
           element={<BreweryDetails
           />}
         />

@@ -1,0 +1,36 @@
+@import "./_variables.scss";
+@import "./_list";
+
+.brewery-details-container {
+  display: flex;
+  justify-content: center;
+}
+
+.brewery-details-map {
+  padding-right: 50px;
+  margin-right: 0;
+}
+.brewery-item-name {
+  font-size: 32px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.brewery-info {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.brewery-details-info-container {
+  width: 40%;
+  height: 35vh;
+  font-family: 'Robot Slab', sans-serif;
+  font-weight:bolder;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: 2px 2px 6px 2px $borderColor;
+  color: $primaryTextColor;
+  font-size: 30px;
+}

@@ -1,0 +1,13 @@
+@import "./_variables.scss";
+
+
+.list-container {
+  background-color: $bgColor;
+  color: $primaryTextColor;
+  display: flex;
+  flex-wrap:wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-grow: 3;
+  gap: 30px
+}

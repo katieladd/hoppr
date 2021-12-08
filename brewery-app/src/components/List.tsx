@@ -9,28 +9,26 @@ type Props = {
 const List: React.FC<Props> = ({listItem}) => {
 
   return (
-    <div className={`item-container ${listItem.id}`}>
-      <h1>{listItem.name}</h1>
-      <h2>
-        <label>Type:</label>
-      </h2>
-      <li>{listItem.brewery_type}</li>
-      <h2>
-        <label>Address</label>
-      </h2>
-      <li>{listItem.city}</li>
-      <li>{listItem.state}</li>
+    <div className={'item-container'}>
+      <h2 className='item-name'>{listItem.name}</h2>
+      <div>
+        <label>Brewery Style: {listItem.brewery_type}</label>
+      </div>
+      <div className='label-div'>
+        <label>Address:</label>
+      </div>
       <li>{listItem.street}</li>
       {listItem.address_2 && <li>{listItem.address_2}</li>}
       {listItem.address_3 && <li>{listItem.address_3}</li>}
-      <li>{listItem.postal_code}</li>
-      <h2>
+      <li>{listItem.city}, {listItem.state}</li>
+      <div className='label-div'>
         <label>Website</label>
-      </h2>
-      <li>{listItem.website_url}</li>
+      </div>
+      <a href={listItem.website_url}>{listItem.website_url}</a>
       <Link to={`details/${listItem.id}`}>
+        <br/>
         <button
-          className='more-info-button'
+          className='more-details-button button'
           type='button'
         >
           More Details</button>

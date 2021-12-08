@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+.Logo {
+  font-family: 'Smooch', sans-serif;
+  font-weight: 100;
+  margin-top: 8px;
+  margin-left: 40px;
+  padding-left: 25px;
+}
+
+.header-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 9vh;
+  width: 100%;
+  margin-bottom: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  font-size: 3vw;
+  color: #f0e7de;
+  background-color: #262627;
+  border-bottom: 2px;
+  -webkit-box-shadow: 0px 0px 2px 0px #080808;
+          box-shadow: 0px 0px 2px 0px #080808;
+}
+
+.header-text {
+  padding-top: 8px;
+  padding-left: 50px;
+}
+
+.city-input {
+  margin-top: 8px;
+  height: 7vh;
+  width: 280px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bolder;
+  font-size: 3vw;
+  border: none;
+  color: #b3743a;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin-left: 10px;
+}
+
+.submit-city {
+  font-size: 15px;
+  font-weight: bold;
+  width: 300px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #f0e7a7;
+  color: #f0e7a7;
+  background-color: #262627;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  margin-left: 30px;
+  width: 150px;
+  border-radius: 150px;
+  font-size: 48px;
+  color: #262627;
+  background-color: #f0e7a7;
+}
+
+.submit-city:hover {
+  background-color: #f0e7a7;
+  color: #262627;
+}
+
+.submit-city:hover {
+  background-color: #262627;
+  color: #f0e7a7;
+}
+
+.item-container {
+  width: 28%;
+  height: 30vh;
+  font-family: 'Robot Slab', sans-serif;
+  font-weight: bolder;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 8px;
+  -webkit-box-shadow: 2px 2px 6px 2px #080808;
+          box-shadow: 2px 2px 6px 2px #080808;
+}
+
+.label-div {
+  font-size: 24px;
+}
+
+.item-container {
+  width: 28%;
+  height: 30vh;
+  font-family: 'Robot Slab', sans-serif;
+  font-weight: bolder;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 8px;
+  -webkit-box-shadow: 2px 2px 6px 2px #080808;
+          box-shadow: 2px 2px 6px 2px #080808;
+}
+
+.label-div {
+  font-size: 24px;
+}
+
+.brewery-details-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.brewery-details-map {
+  padding-right: 50px;
+  margin-right: 0;
+}
+
+.brewery-item-name {
+  font-size: 32px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.brewery-info {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+.brewery-details-info-container {
+  width: 40%;
+  height: 35vh;
+  font-family: 'Robot Slab', sans-serif;
+  font-weight: bolder;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 8px;
+  -webkit-box-shadow: 2px 2px 6px 2px #080808;
+          box-shadow: 2px 2px 6px 2px #080808;
+  color: #f0e7de;
+  font-size: 30px;
+}
+
+.list-container {
+  background-color: #262627;
+  color: #f0e7de;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 3;
+      -ms-flex-positive: 3;
+          flex-grow: 3;
+  gap: 30px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', cursive;
+  background-color: #262627;
+}
+
+.h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.App {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  font-size: 15px;
+  font-weight: bold;
+  width: 300px;
+  border-radius: 5px;
+  border-width: 1px;
+  border-color: #f0e7a7;
+  color: #f0e7a7;
+  background-color: #262627;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.button:hover {
+  background-color: #f0e7a7;
+  color: #262627;
+}
+/*# sourceMappingURL=app.css.map */

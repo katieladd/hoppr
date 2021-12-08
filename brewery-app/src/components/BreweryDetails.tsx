@@ -25,27 +25,28 @@ const BreweryDetails: React.FC = () => {
 
   return (
     <div className='brewery-details-container'>
-      {breweryItem.latitude && breweryItem.longitude ? <Map
-        lat={breweryItem.latitude}
-        lng={breweryItem.longitude}
-      />
+      <div className='brewery-details-map'>
+        {breweryItem.latitude && breweryItem.longitude ? <Map
+          lat={breweryItem.latitude}
+          lng={breweryItem.longitude}
+        />
         : <div>
           No map data available for this brewery 😔
         </div>}
-      <div className={`brewery-details-info-container`}>
-        <h1>{breweryItem.name}</h1>
-        <h2>
-          <label>Address</label>
-        </h2>
-        <li>{breweryItem.city}</li>
-        <li>{breweryItem.state}</li>
-        <li>{breweryItem.street}</li>
-        {breweryItem.address_2 && <li>{breweryItem.address_2}</li>}
-        {breweryItem.address_3 && <li>{breweryItem.address_3}</li>}
-        <li>{breweryItem.postal_code}</li>
+      </div>
+      <div className='brewery-details-info-container'>
+        <div className='brewery-item-name'>{breweryItem.name}</div>
+        <div className='brewery-info'>
+          <label>Address:</label>
+          <div>{breweryItem.street}</div>
+          {breweryItem.address_2 && <div>{breweryItem.address_2}</div>}
+          {breweryItem.address_3 && <div>{breweryItem.address_3}</div>}
+          <div>{breweryItem.city}, {breweryItem.state}</div>
+          <div>{breweryItem.postal_code}</div>
+        </div>
         <Link to={`/`}>
           <button
-            className='back-button'
+            className='back-button button'
             type='button'
           >
             Back to List</button>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 const apiKey: string = (process.env.REACT_APP_MAPS_KEY as string);
 
@@ -8,8 +8,8 @@ type CenterProps = {
 }
 
 const containerStyle = {
-  width: '50vw',
-  height: '50vh'
+  width: '40vw',
+  height: '40vh'
 };
 
 const options = {

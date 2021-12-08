@@ -1,0 +1,36 @@
+
+@import "./_variables.scss";
+@import "./_header";
+@import "./_list";
+@import "./_breweryDetails";
+@import "./_home";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+
+body {
+  margin: 0;
+  font-family: 'Roboto', cursive;
+  background-color: $bgColor;
+}
+
+.h2 {
+  margin: 0;
+  text-align: center;
+}
+.App {
+  text-align: center;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button {
+  @include button;
+}

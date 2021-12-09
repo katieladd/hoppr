@@ -10,7 +10,7 @@ const BreweryDetails: React.FC = () => {
     const {id} = useParams();
 
     useEffect(() => {
-      axios.get(`https://api.openbrewerydb.org/breweries/${id}`)
+      axios.get(`localhost:3000/brewery/?id=${id}`)
       .then((response) => {
         if(response.data) {
           setBreweryItem(response.data)
@@ -24,8 +24,8 @@ const BreweryDetails: React.FC = () => {
     console.log(breweryItem.latitude)
 
   return (
-    <div className='brewery-details-container'>
-      <div className='brewery-details-map'>
+    <div className="brewery-details-container">
+      <div className="brewery-details-map">
         {breweryItem.latitude && breweryItem.longitude ? <Map
           lat={breweryItem.latitude}
           lng={breweryItem.longitude}
@@ -34,9 +34,9 @@ const BreweryDetails: React.FC = () => {
           No map data available for this brewery 😔
         </div>}
       </div>
-      <div className='brewery-details-info-container'>
-        <div className='brewery-item-name'>{breweryItem.name}</div>
-        <div className='brewery-info'>
+      <div className="brewery-details-info-container">
+        <div className="brewery-item-name">{breweryItem.name}</div>
+        <div className="brewery-info">
           <label>Address:</label>
           <div>{breweryItem.street}</div>
           {breweryItem.address_2 && <div>{breweryItem.address_2}</div>}
@@ -46,8 +46,8 @@ const BreweryDetails: React.FC = () => {
         </div>
         <Link to={`/`}>
           <button
-            className='back-button button'
-            type='button'
+            className="back-button button"
+            type="button"
           >
             Back to List</button>
         </Link>

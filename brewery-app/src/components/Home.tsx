@@ -7,7 +7,7 @@ const Home: React.FC<Props> = (
   ) => {
   return (
     <div>
-    <div className='list-container'>
+    <div className="list-container">
         {brewList?.map(listItem => (
         <List
           listItem={listItem}

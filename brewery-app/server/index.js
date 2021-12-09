@@ -1,22 +1,37 @@
+require("dotenv/config");
 const express = require("express");
-const path = require('path');
-const bodyParser = require('body-parser');
+const path = require("path");
+const morgan = require("morgan");
+const {getByCity, getById} = require("../routes/breweries")
 
 const app = express();
+const port = process.env.PORT || 3000;
+const mongoose = require("mongoose");
 
-const PORT = process.env.PORT || 3001;
-app.use(express.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+mongoose.connection.on("error", (err) => console.log(err.message));
+mongoose.connection.on("open", () => console.log("connected to mongo server"));
 
-app.get("/brewery", (req, res) => {
-  res.send('hullo')
-})
-
-app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'));
+mongoose.connect(
+  process.env.DB_CONNECTION,
+  {useUnifiedTopology: true, useNewUrlParser: true},
+() => {
+  console.log("connected to database")
 });
+app.use(express.static(path.join(__dirname, "..", "build")));
+app.use(express.static("public"));
+app.use(express.urlencoded({ extended: true }));
+app.use(morgan("tiny"));
 
-app.listen(PORT, () => {
-  console.log(`Server listening on ${PORT}`);
+app.route("/brewery?:id")
+  .get(getById)
+
+app.route("/breweries/city?:by_city")
+  .get(getByCity);
+
+// app.get("*", (req, res) => {
+//    res.sendFile(path.join(__dirname, "../build"));
+// });
+
+app.listen(port, () => {
+   console.log(`Server is up on port ${port}`);
 });

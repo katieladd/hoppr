@@ -1,5 +1,5 @@
-import React from 'react'
-import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
+import React from "react"
+import { GoogleMap, Marker, useJsApiLoader } from "@react-google-maps/api";
 const apiKey: string = (process.env.REACT_APP_MAPS_KEY as string);
 
 type CenterProps = {
@@ -8,8 +8,8 @@ type CenterProps = {
 }
 
 const containerStyle = {
-  width: '40vw',
-  height: '40vh'
+  width: "40vw",
+  height: "40vh"
 };
 
 const options = {
@@ -24,7 +24,7 @@ const Map: React.FC<CenterProps>= ({lat, lng}) => {
   };
 
   const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
+    id: "google-map-script",
     googleMapsApiKey: apiKey
   })
 

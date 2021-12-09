@@ -11,23 +11,23 @@ interface Props {
 const Header: React.FC<Props> = ({city, setCity, handleOnSubmit}) => {
 
   return (
-    <div className='header-container'>
-      <div className='Logo'>
+    <div className="header-container">
+      <div className="Logo">
         hoppr
       </div>
-      <div className='header-text'>
-        Let's get hoppin' in
+      <div className="header-text">
+        Let"s get hoppin" in
       </div>
       <form onSubmit={handleOnSubmit}>
         <input
-          className='city-input'
-          type='text'
-          placeholder='Harrisburg'
+          className="city-input"
+          type="text"
+          placeholder="Harrisburg"
           onChange={(e: InputEvent) => setCity(e.target.value)}
         ></input>
         <button
-          className='submit-city'
-          type='submit'>
+          className="submit-city"
+          type="submit">
           Hop
         </button>
       </form>

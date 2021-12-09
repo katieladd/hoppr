@@ -56,11 +56,11 @@ type FormEvent = React.FormEvent<HTMLFormElement>;
 
 const App: React.FC = () => {
   const [brewList, setBrewList] = useState<Brewery[]>([initBrewery])
-  const [city, setCity] = useState<string>('Harrisburg')
-  const [response, setResponse] = useState('');
+  const [city, setCity] = useState<string>("Harrisburg")
+  const [response, setResponse] = useState("");
 
   const getCityBreweryList = (city: string) => {
-    axios.get(`https://api.openbrewerydb.org/breweries?by_city=${city}`)
+    axios.get(`localhost:3000/breweries/city?by_city=${city}`)
     .then((response) => {
       if(response.data) {
         setBrewList(response.data)
@@ -72,7 +72,7 @@ const App: React.FC = () => {
   }
 
   const getBackendData = () => {
-    axios.get('http://localhost:3001/brewery')
+    axios.get("http://localhost:3001/brewery")
     .then((response) => {
       console.log(response)
     });
@@ -97,12 +97,12 @@ const App: React.FC = () => {
         handleOnSubmit={handleOnSubmit}
       />
       <Routes>
-        <Route path='/'
+        <Route path="/"
           element={<Home
             brewList={brewList}
           />}
         />
-        <Route path='/details/:id'
+        <Route path="/details/:id"
           element={<BreweryDetails
           />}
         />

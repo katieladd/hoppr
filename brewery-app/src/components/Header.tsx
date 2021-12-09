@@ -16,7 +16,7 @@ const Header: React.FC<Props> = ({city, setCity, handleOnSubmit}) => {
         hoppr
       </div>
       <div className="header-text">
-        Let"s get hoppin" in
+        Let's get hoppin' in
       </div>
       <form onSubmit={handleOnSubmit}>
         <input

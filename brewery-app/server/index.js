@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("tiny"));
 
 app.route("/brewery?:id")
-  .get(getById)
+  .get(getById);
 
 app.route("/breweries/city?:by_city")
   .get(getByCity);

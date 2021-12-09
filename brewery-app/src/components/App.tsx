@@ -60,7 +60,7 @@ const App: React.FC = () => {
   const [response, setResponse] = useState("");
 
   const getCityBreweryList = (city: string) => {
-    axios.get(`localhost:3000/breweries/city?by_city=${city}`)
+    axios.get(`/breweries/city?by_city=${city}`)
     .then((response) => {
       if(response.data) {
         setBrewList(response.data)
@@ -71,13 +71,6 @@ const App: React.FC = () => {
     });
   }
 
-  const getBackendData = () => {
-    axios.get("http://localhost:3001/brewery")
-    .then((response) => {
-      console.log(response)
-    });
-  }
-
   const handleOnSubmit = (e: FormEvent) => {
     e.preventDefault();
     getCityBreweryList(city);
@@ -85,7 +78,6 @@ const App: React.FC = () => {
 
   useEffect(() => {
     getCityBreweryList(city)
-    getBackendData()
   }, [])
 
   return (

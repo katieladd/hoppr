@@ -10,7 +10,7 @@ const BreweryDetails: React.FC = () => {
     const {id} = useParams();
 
     useEffect(() => {
-      axios.get(`localhost:3000/brewery/?id=${id}`)
+      axios.get(`/brewery/?id=${id}`)
       .then((response) => {
         if(response.data) {
           setBreweryItem(response.data)

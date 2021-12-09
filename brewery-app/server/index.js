@@ -5,7 +5,7 @@ const morgan = require("morgan");
 const {getByCity, getById} = require("../routes/breweries")
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = 3003;
 const mongoose = require("mongoose");
 
 mongoose.connection.on("error", (err) => console.log(err.message));
@@ -27,10 +27,6 @@ app.route("/brewery?:id")
 
 app.route("/breweries/city?:by_city")
   .get(getByCity);
-
-// app.get("*", (req, res) => {
-//    res.sendFile(path.join(__dirname, "../build"));
-// });
 
 app.listen(port, () => {
    console.log(`Server is up on port ${port}`);

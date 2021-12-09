@@ -7,7 +7,7 @@ import Home from "./Home";
 import "../styles/app.css";
 
 export interface Brewery {
-  id: string;
+  obdb_slug: string;
   name: string;
   brewery_name: string;
   brewery_type: string;
@@ -32,7 +32,7 @@ export interface Props {
 }
 
 export const initBrewery: Brewery = {
-  id: "",
+  obdb_slug: "",
   name: "",
   brewery_name: "",
   brewery_type: "",

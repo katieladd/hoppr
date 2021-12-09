@@ -11,8 +11,8 @@ const getByCity = async (req, res) => {
 
 const getById = async (req, res) => {
   const id = req.query.id;
-
-  const response = await Brewery.find({ "_id": id })
+  console.log(id)
+  const response = await Brewery.findOne({ "obdb_slug": id })
 
     res.status(200).json(response);
 }

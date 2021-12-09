@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 
 const BrewerySchema = new mongoose.Schema({
-  obdb_id: {
-    type: String,
-    alias: "id"
-  },
+  obdb_slug: String,
   name: String,
   brewery_name: String,
   brewery_type: String,

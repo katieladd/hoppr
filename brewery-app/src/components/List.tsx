@@ -25,7 +25,7 @@ const List: React.FC<Props> = ({listItem}) => {
         <label>Website</label>
       </div>
       <a href={listItem.website_url}>{listItem.website_url}</a>
-      <Link to={`details/${listItem.id}`}>
+      <Link to={`details/${listItem.obdb_slug}`}>
         <br/>
         <button
           className="more-details-button button"

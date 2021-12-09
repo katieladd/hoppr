@@ -11,7 +11,7 @@ const Home: React.FC<Props> = (
         {brewList?.map(listItem => (
         <List
           listItem={listItem}
-          key={listItem.id}
+          key={listItem.obdb_slug}
         />
       ))}
     </div>

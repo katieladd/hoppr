@@ -5,7 +5,7 @@ const morgan = require("morgan");
 const {getByCity, getById} = require("../routes/breweries")
 
 const app = express();
-const port = 3003;
+const port = process.env.PORT || 3000;
 const mongoose = require("mongoose");
 
 mongoose.connection.on("error", (err) => console.log(err.message));
